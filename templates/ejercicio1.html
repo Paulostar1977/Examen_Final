@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 1 - Cálculo de Compra</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 50px;
+        }
+        h1 {
+            text-align: center;
+        }
+        .form-container {
+            text-align: left;
+            margin: 0 auto;
+            max-width: 400px;
+        }
+        label, input {
+            display: block;
+            margin: 10px 0;
+        }
+        button {
+            background-color: blue;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .result-text {
+            margin-top: 20px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Cálculo de Compra</h1>
+    <div class="form-container">
+        <form method="POST">
+            <label for="nombre">Ingrese su nombre:</label>
+            <input type="text" id="nombre" name="nombre" required>
+
+            <label for="edad">Ingrese su edad:</label>
+            <input type="number" id="edad" name="edad" required>
+
+            <label for="cantidad">Ingrese la cantidad de tarros de pintura a comprar:</label>
+            <input type="number" id="cantidad" name="cantidad" required>
+
+            <button type="submit">Calcular</button>
+        </form>
+
+        {% if nombre %}
+        <div class="result-text">
+            <p><strong>Nombre del Cliente:</strong> {{ nombre }}</p>
+            <p><strong>Total sin descuento:</strong> ${{ total_sin_descuento }}</p>
+
+            {% if descuento > 0 %}
+                <p><strong>El descuento es:</strong> {{ descuento * 100 }}%</p>
+            {% else %}
+                <p><strong>No se aplicó descuento.</strong></p>
+            {% endif %}
+
+            <p><strong>Total a pagar es de:</strong> ${{ total_con_descuento }}</p>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>

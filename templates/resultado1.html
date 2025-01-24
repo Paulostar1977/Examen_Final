@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resultado - Ejercicio 1</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+        .result-container {
+            margin-top: 20px;
+            background-color: #f4f4f4;
+            padding: 20px;
+            border-radius: 10px;
+            border: 1px solid #ddd;
+        }
+        .highlight {
+            font-weight: bold;
+            color: green;
+        }
+    </style>
+</head>
+<body>
+    <h1>Resultado</h1>
+
+    <div class="result-container">
+        <p><strong>Nombre del Cliente:</strong> {{ nombre }}</p>
+        <p><strong>Total sin descuento:</strong> ${{ total_sin_descuento }}</p>
+
+        {% if descuento > 0 %}
+            <p><strong>El descuento es:</strong> {{ descuento * 100 }}%</p>
+        {% else %}
+            <p><strong>No se aplicó descuento.</strong></p>
+        {% endif %}
+
+        <p><strong>Total a pagar:</strong> ${{ total_con_descuento }}</p>
+    </div>
+
+    <a href="/">Volver al Menú Principal</a>
+</body>
+</html>
